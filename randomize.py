@@ -7,30 +7,36 @@ import os
 def main():
   
   # read the directory list into a list
+  if len(sys.argv) != 2:
+    print 'usage: randomize dirpath'
+    sys.exit(1)
+
   path = sys.argv[1]
   dirList = os.listdir(path)
-  lenoflist = len(dirList)
-  
-  
+  lenoflist = len(dirList)  
+
   i = 0
-  while i < lenoflist:
+  while lenoflist:
     
-    dirList = []
-    dirList = os.listdir(path)
+    # choose a random file from list and echo its name
+    oldfile = random.choice(dirList)
+    print 'old filename:' + oldfile
     
-    # choose a random file
-    file = random.choice(dirList)
-    oldpath = path + file
-    print 'old path:' + oldpath
+    # rename this file and echo its new name
+    canonical_name, ext = os.path.splitext(oldfile)
+    canonical_name+='-' + str(i)
+    newfile = canonical_name + ext
+    print 'new filename:' + newfile
+
+    # get absolute paths for both files and rename the old with new name
+    oldfile_abspath = os.path.abspath(os.path.join(path, oldfile))
+    newfile_abspath = os.path.abspath(os.path.join(path, newfile))
+    os.rename(oldfile_abspath, newfile_abspath)  
     
-    # save this file with new file name    
-    newpath = path + "renames/" + str(i) + '.png'
-    print 'new path:' + newpath
-    os.rename(oldpath, newpath)  
-    
-    
-    i = i + 1  
-  
+    # remove the renamed file from the list NOT to be randomly chosen again
+    del dirList[dirList.index(oldfile)]
+    lenoflist -= 1
+    i += 1
   
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
