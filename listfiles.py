@@ -4,14 +4,14 @@ import sys
 import os
 
 def main():
-  # Get the name from the command line, using 'World' as a fallback.
-  path = sys.argv[1]
+  dir = sys.argv[1]
   f = open('negativeImage.txt', 'w')
   
-  dirList = os.listdir(path)
+  dirList = os.listdir(dir)
   for filename in dirList:
-    fullpath = path + '/' + filename + '\n'
-    f.write(fullpath)
+    path = os.path.join(dir, filename)
+    abspath = os.path.abspath(path)
+    f.write(abspath+'\n')
   f.close()
   
     
