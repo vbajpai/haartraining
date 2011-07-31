@@ -1,5 +1,14 @@
-#!/usr/bin/python -tt
-
+#!/usr/bin/env python
+"""
+Saves a dir listing in a file
+Usage: python listfiles.py -d dir -f filename [flags]
+Arguments:
+  -d, --dir               dir; ls of which will be saved in a file
+  -f, --file              filename (if existing will be overwritten)
+Flags:
+  -h, --help              show this help 
+  -v, --verbose           be verbose
+"""
 import sys
 import random
 import os
@@ -37,7 +46,6 @@ def main():
     del dirList[dirList.index(oldfile)]
     lenoflist -= 1
     i += 1
-  
-# This is the standard boilerplate that calls the main() function.
+
 if __name__ == '__main__':
   main()
