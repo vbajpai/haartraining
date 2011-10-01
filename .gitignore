@@ -1,0 +1,73 @@
+syntax: glob
+
+# ---------- #
+#  Textmate
+# ---------- #
+
+*.tmproj
+*.tmproject
+tmtags        
+
+# --------- #
+#  Python
+# --------- #
+
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg         
+
+# ---------- #
+#  Mac OS X
+# ---------- #
+
+.DS_Store
+Icon?    
+*.orig
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes          
+
+# ------ #
+#  C++
+# ------ #
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
